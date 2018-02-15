@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   isAuth(): boolean {
-    return this.user == null;
+    return this.user != null;
   }
 
   private getUser(): User {
@@ -45,6 +45,7 @@ export class AuthService {
   }
 
   private authSuccessfully(): void {
+    this.authChange.next(true);
     this.router.navigate(['training']);
   }
 }
