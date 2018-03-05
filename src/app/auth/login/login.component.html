@@ -1,9 +1,9 @@
 <section class="login-form">
   <form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onSubmit()" fxLayoutGap="10px"
-  [formGroup]="loginForm">
+        [formGroup]="loginForm">
     <mat-form-field>
       <input type="email" matInput placeholder="Your E-Mail" name="email"
-      formControlName="email">
+             formControlName="email">
       <mat-hint>Please enter a valid email</mat-hint>
       <mat-error>Invalid or Missing E-Mail</mat-error>
     </mat-form-field>
@@ -15,6 +15,13 @@
       <mat-error>Missing Password</mat-error>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+    <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid"
+            *ngIf="!(uiService.loadingStateChanged | async); else spinner">
+      Login
+    </button>
+
+    <ng-template #spinner>
+      <mat-spinner></mat-spinner>
+    </ng-template>
   </form>
 </section>

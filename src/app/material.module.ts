@@ -9,10 +9,12 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatNativeDateModule, MatPaginatorModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
   MatProgressSpinnerModule,
   MatSelectModule,
   MatSidenavModule,
+  MatSnackBarModule,
   MatSortModule,
   MatTableModule,
   MatTabsModule,
@@ -38,7 +40,9 @@ import {
     MatDialogModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -58,7 +62,8 @@ import {
     MatDialogModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ]
 })
 

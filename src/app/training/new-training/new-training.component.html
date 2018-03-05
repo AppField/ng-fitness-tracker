@@ -3,7 +3,7 @@
     <mat-card fxFlex.xs="100%" fxFlex="400px">
       <mat-card-title fxLayoutAlign="center">Time to start a workout!</mat-card-title>
       <mat-card-content fxLayoutAlign="center">
-        <mat-form-field>
+        <mat-form-field *ngIf="!(uiService.loadingStateChanged | async); else spinner">
           <mat-select placeholder="Choose Exercise" ngModel name="exercise" required>
             <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">
               {{exercise.name}}
@@ -11,6 +11,9 @@
           </mat-select>
         </mat-form-field>
 
+        <ng-template #spinner>
+          <mat-spinner></mat-spinner>
+        </ng-template>
       </mat-card-content>
       <mat-card-actions fxLayoutAlign="center">
         <button type="submit" mat-button [disabled]="form.invalid">Start</button>

@@ -4,6 +4,7 @@ import { Exercise } from '../exercise.model';
 import { NgForm } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
+import { UIService } from '../../shared/ui.service';
 
 @Component({
   selector: 'app-new-training',
@@ -15,7 +16,7 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
 
   exercises: Exercise[];
 
-  constructor(public trainingService: TrainingService) {
+  constructor(public trainingService: TrainingService, public uiService: UIService) {
   }
 
   ngOnInit() {
