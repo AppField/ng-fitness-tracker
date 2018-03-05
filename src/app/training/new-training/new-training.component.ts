@@ -12,9 +12,8 @@ import { UIService } from '../../shared/ui.service';
   styleUrls: ['./new-training.component.scss']
 })
 export class NewTrainingComponent implements OnInit, OnDestroy {
+  exercises: Exercise[] = [];
   private destroy$ = new Subject<boolean>();
-
-  exercises: Exercise[];
 
   constructor(public trainingService: TrainingService, public uiService: UIService) {
   }
@@ -22,8 +21,15 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.trainingService.exercisesChange
       .takeUntil(this.destroy$)
-      .subscribe((exercises: Exercise[]) => this.exercises = exercises);
+      .subscribe((exercises: Exercise[]) => {
+        this.exercises = exercises;
+        console.log('Exercises: ', this.exercises);
+      });
 
+    this.fetchExercises();
+  }
+
+  fetchExercises(): void {
     this.trainingService.fetchAvailableExercises();
   }
 
