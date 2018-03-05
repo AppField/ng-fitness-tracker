@@ -14,8 +14,8 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { UIService } from './shared/ui.service';
 import { AuthModule } from './auth/auth.module';
-import { TrainingModule } from './training/training.module';
 import { SharedModule } from './shared/shared.module';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
-    TrainingModule,
+    AngularFirestoreModule,
     AuthModule
   ],
   providers: [AuthService, TrainingService, UIService],
